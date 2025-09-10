@@ -1,1 +1,24 @@
-/* TEMP - GitHub pages site */
+body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+h1 {
+    text-align: center;
+    margin: 1rem;
+}
+#map {
+    height: 70vh;
+    width: 100%;
+}
+#bbox-output {
+    padding: 1rem;
+    background: #f4f4f4;
+}
+pre {
+    background: #eaeaea;
+    padding: 0.5rem;
+}
+button {
+    margin-top: 0.5rem;
+}

@@ -1,1 +1,23 @@
-<!-- TEMP - GitHub pages site -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bounding Box Finder</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>Bounding Box Finder</h1>
+    <div id="map"></div>
+    <div id="bbox-output">
+        <h2>Bounding Box Coordinates</h2>
+        <pre id="bbox-coords">Draw a rectangle to see coordinates</pre>
+        <button onclick="copyToClipboard()">Copy to clipboard</button>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
