@@ -9,11 +9,11 @@ map.addLayer(drawnItems);
 
 const drawControl = new L.Control.Draw({
     draw: {
-        polygon: false,
-        polyline: false,
-        circle: false,
-        marker: false,
-        circlemarker: false,
+        polygon: true,
+        polyline: true,
+        circle: true,
+        marker: true,
+        circlemarker: true,
         rectangle: true
     },
     edit: {
