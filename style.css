@@ -22,3 +22,19 @@ pre {
 button {
     margin-top: 0.5rem;
 }
+/* [11/09/2025 - SEARCH TO PLACE PIN */
+/* THIS CODE WAS TAKEN FROM A VERY VERY VERY OLD PROJECT; DO NOT EXPECT CODE STYLE TO BE THE SAME */
+/*------------------------------------------------------------------------------------------------*/
+/* Controls container styling */
+#controls {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* END OF 11/09/2025 OLD CODE
+/*------------------------------------------------------------------------------------------------*/

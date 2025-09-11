@@ -78,3 +78,22 @@ function copyToClipboard() {
         alert("Copied to clipboard!");
     });
 }
+
+// [11/09/2025 - SEARCH TO PLACE PIN
+// THIS CODE WAS TAKEN FROM A VERY VERY VERY OLD PROJECT; DO NOT EXPECT CODE STYLE TO BE THE SAME
+//------------------------------------------------------------------------------------------------//
+// Search address
+document.getElementById('searchAddress').addEventListener('click', async () => {
+    const query = document.getElementById('addressSearch').value;
+    if (!query) return alert('Please enter an address.');
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json`);
+    const results = await response.json();
+    if (results.length > 0) {
+        const { lat, lon } = results[0];
+        addMarker(lat, lon);
+        map.setView([lat, lon], 15);
+    } else {
+        alert('Address not found.');
+    }
+});
+// END OF 11/09/2025 OLD CODE
