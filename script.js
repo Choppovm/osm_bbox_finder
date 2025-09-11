@@ -82,6 +82,19 @@ function copyToClipboard() {
 // [11/09/2025 - SEARCH TO PLACE PIN
 // THIS CODE WAS TAKEN FROM A VERY VERY VERY OLD PROJECT; DO NOT EXPECT CODE STYLE TO BE THE SAME
 //------------------------------------------------------------------------------------------------//
+// Add marker function
+async function addMarker(lat, lng) {
+    const marker = L.marker([lat, lng], { draggable: true }).addTo(map);
+    marker.on('contextmenu', () => {
+        map.removeLayer(marker);
+        const index = busStops.indexOf(marker);
+        if (index > -1) busStops.splice(index, 1);
+        updatePinList();
+    });
+    busStops.push(marker);
+    await updatePinList();
+}
+
 // Search address
 document.getElementById('searchAddress').addEventListener('click', async () => {
     const query = document.getElementById('addressSearch').value;
