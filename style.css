@@ -38,3 +38,18 @@ button {
 }
 /* END OF 11/09/2025 OLD CODE
 /*------------------------------------------------------------------------------------------------*/
+#bbox-input {
+    padding: 1rem;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+.bbox-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#bbox-input input {
+    padding: 0.5rem;
+    width: 45%;
+}

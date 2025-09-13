@@ -25,6 +25,18 @@
         <pre id="bbox-coords">Draw a rectangle to see coordinates</pre>
         <button onclick="copyToClipboard()">Copy to clipboard</button>
     </div>
+    <div id="bbox-input">
+        <h2>Enter Bounding Box Coordinates</h2>
+        <div class="bbox-row">
+            <input type="number" step="any" id="minLat" placeholder="Min Latitude (South)">
+            <input type="number" step="any" id="minLng" placeholder="Min Longitude (West)">
+        </div>
+        <div class="bbox-row">
+            <input type="number" step="any" id="maxLat" placeholder="Max Latitude (North)">
+            <input type="number" step="any" id="maxLng" placeholder="Max Longitude (East)">
+        </div>
+        <button onclick="drawBoundingBox()">Display Bounding Box</button>
+    </div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
     <script src="script.js"></script>

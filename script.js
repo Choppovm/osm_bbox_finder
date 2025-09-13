@@ -110,3 +110,36 @@ document.getElementById('searchAddress').addEventListener('click', async () => {
     }
 });
 // END OF 11/09/2025 OLD CODE
+
+// Plot bounding box
+function drawBoundingBox() {
+    const minLat = parseFloat(document.getElementById("minLat").value);
+    const minLng = parseFloat(document.getElementById("minLng").value);
+    const maxLat = parseFloat(document.getElementById("maxLat").value);
+    const maxLng = parseFloat(document.getElementById("maxLng").value);
+
+    if (
+        isNaN(minLat) || isNaN(minLng) ||
+        isNaN(maxLat) || isNaN(maxLng) ||
+        minLat >= maxLat || minLng >= maxLng
+    ) {
+        alert("Please enter valid coordinates.");
+        return;
+    }
+
+    drawnItems.clearLayers();
+
+    const bounds = [[minLat, minLng], [maxLat, maxLng]];
+    const rectangle = L.rectangle(bounds, { color: "#ff7800", weight: 1 });
+    drawnItems.addLayer(rectangle);
+    map.fitBounds(rectangle.getBounds());
+
+    const bboxText = `
+    Bounding Box:
+    Min Longitude (West): ${minLng.toFixed(6)}
+    Min Latitude (South): ${minLat.toFixed(6)}
+    Max Longitude (East): ${maxLng.toFixed(6)}
+    Max Latitude (North): ${maxLat.toFixed(6)}
+    `;
+    document.getElementById("bbox-coords").textContent = bboxText;
+}
