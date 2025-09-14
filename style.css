@@ -7,6 +7,10 @@ h1 {
     text-align: center;
     margin: 1rem;
 }
+h2 {
+    text-align: center;
+    margin: 1rem;
+}
 #map {
     height: 70vh;
     width: 100%;
@@ -53,3 +57,4 @@ button {
     padding: 0.5rem;
     width: 45%;
 }
+
