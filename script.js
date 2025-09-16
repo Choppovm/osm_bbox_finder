@@ -136,10 +136,15 @@ function drawBoundingBox() {
 
     const bboxText = `
     Bounding Box:
-    Min Longitude (West): ${minLng.toFixed(6)}
-    Min Latitude (South): ${minLat.toFixed(6)}
-    Max Longitude (East): ${maxLng.toFixed(6)}
-    Max Latitude (North): ${maxLat.toFixed(6)}
+    4-Coordinate Format:
+        Min Longitude (West): ${minLng.toFixed(6)}
+        Min Latitude (South): ${minLat.toFixed(6)}
+        Max Longitude (East): ${maxLng.toFixed(6)}
+        Max Latitude (North): ${maxLat.toFixed(6)}
+    2-Cordinate Format:
+        NE: ${maxLat.toFixed(6)} , ${maxLng.toFixed(6)}
+        SW: ${minLat.toFixed(6)} , ${minLng.toFixed(6)}
     `;
     document.getElementById("bbox-coords").textContent = bboxText;
 }
+
