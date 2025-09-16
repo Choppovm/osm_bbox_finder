@@ -1,0 +1,4 @@
+Massive credits to botzill.
+Original link: https://gist.github.com/botzill/fc2a1581873200739f6dc5c1daf85a7d#file-countries_bbox-json
+
+Saved what would've been literal hours trying to get good enough bounding box data for each country.
