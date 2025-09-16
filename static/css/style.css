@@ -1,0 +1,59 @@
+body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+h1 {
+    text-align: center;
+    margin: 1rem;
+}
+h2 {
+    text-align: center;
+    margin: 1rem;
+}
+#map {
+    height: 70vh;
+    width: 100%;
+}
+#bbox-output {
+    padding: 1rem;
+    background: #f4f4f4;
+}
+pre {
+    background: #eaeaea;
+    padding: 0.5rem;
+}
+button {
+    margin-top: 0.5rem;
+}
+/* [11/09/2025 - SEARCH TO PLACE PIN */
+/* THIS CODE WAS TAKEN FROM A VERY VERY VERY OLD PROJECT; DO NOT EXPECT CODE STYLE TO BE THE SAME */
+/*------------------------------------------------------------------------------------------------*/
+/* Controls container styling */
+#controls {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* END OF 11/09/2025 OLD CODE
+/*------------------------------------------------------------------------------------------------*/
+#bbox-input {
+    padding: 1rem;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+.bbox-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#bbox-input input {
+    padding: 0.5rem;
+    width: 45%;
+}

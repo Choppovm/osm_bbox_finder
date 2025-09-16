@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bounding Box Finder</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+    <h1>Bounding Box Finder</h1>
+    <h2><i>Open source: <a href="https://github.com/Choppovm/osm_bbox_finder">Click Here</a></i></h2>
+    <div id="map"></div>
+    <!-- [11/09/2025 - SEARCH TO PLACE PIN -->
+    <!-- THIS CODE WAS TAKEN FROM A VERY VERY VERY OLD PROJECT; DO NOT EXPECT CODE STYLE TO BE THE SAME -->
+    <!-- ---------------------------------------------------------------------------------------------- -->
+    <div id="controls">
+        <input type="text" id="addressSearch" placeholder="Search for an address, country, location, etcetera.">
+        <button id="searchAddress">Search</button>
+    </div>
+    <!-- END OF 11/09/2025 OLD CODE -->
+    <!-- ---------------------------------------------------------------------------------------------- -->
+    <div id="bbox-output">
+        <h2>Bounding Box Coordinates</h2>
+        <h3>(Minimum = SW (South-West), Maximum = NE (North-East))</h3>
+        <pre id="bbox-coords">Draw a rectangle to see coordinates</pre>
+        <button onclick="copyToClipboard()">Copy to clipboard</button>
+    </div>
+    <div id="bbox-input">
+        <h2>Enter Bounding Box Coordinates</h2>
+        <h3>(Minimum = SW (South-West), Maximum = NE (North-East))</h3>
+        <div class="bbox-row">
+            <input type="number" step="any" id="minLat" placeholder="SW Lat (South)">
+            <input type="number" step="any" id="minLng" placeholder="SW Lon (West)">
+        </div>
+        <div class="bbox-row">
+            <input type="number" step="any" id="maxLat" placeholder="NE Lat (North)">
+            <input type="number" step="any" id="maxLng" placeholder="NE Lon (East)">
+        </div>
+        <button onclick="drawBoundingBox()">Display Bounding Box</button>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
