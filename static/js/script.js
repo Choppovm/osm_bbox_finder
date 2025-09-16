@@ -1,4 +1,17 @@
-const map = L.map("map").setView([0, 0], 2);
+const map = L.map("map", {
+    minZoom: 2,
+    maxZoom: 18
+}).setView([0, 0], 2);
+
+const boundsLimit = L.latLngBounds(
+    L.latLng(-85, -180),
+    L.latLng(85, 180)
+);
+
+map.setMaxBounds(boundsLimit);
+map.on("drag", function () {
+    map.panInsideBounds(boundsLimit, { animate: false });
+});
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap contributors",
