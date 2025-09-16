@@ -145,4 +145,3 @@ function drawBoundingBox() {
     document.getElementById("bbox-coords").textContent = bboxText;
 
 }
-
