@@ -36,6 +36,22 @@ const drawControl = new L.Control.Draw({
 });
 map.addControl(drawControl);
 
+// pre-set country bounding boxes (see countryBbox/info.txt from repo)
+let countryBBoxes = {};
+fetch("static/json/bboxValues.json") // Will be/has been copied from countryBbox/bboxValues.json
+    .then(res => res.json())
+    .then(data => {
+        countryBBoxes = data;
+        const select = document.getElementById("countrySelect");
+        for (const [code, bbox] of Object.entries(data)) {
+            const option = document.createElement("option");
+            option.value = code;
+            option.textContent = code;
+            select.appendChild(option);
+        }
+    })
+    .catch(err => console.error("Failed to load bounding boxes:", err));
+
 map.on(L.Draw.Event.CREATED, function (e) {
     drawnItems.clearLayers();
     const layer = e.layer;
@@ -156,5 +172,32 @@ function drawBoundingBox() {
     NE Lat (North): ${maxLat.toFixed(6)}
     `;
     document.getElementById("bbox-coords").textContent = bboxText;
+}
 
+// Pre-set country bounding boxes
+function loadCountryBBox() {
+    const code = document.getElementById("countrySelect").value;
+    if (!code || !countryBBoxes[code]) {
+        alert("Please select a valid country.");
+        return;
+    }
+
+    const sw = countryBBoxes[code].sw;
+    const ne = countryBBoxes[code].ne;
+
+    drawnItems.clearLayers();
+
+    const bounds = [[sw.lat, sw.lon], [ne.lat, ne.lon]];
+    const rectangle = L.rectangle(bounds, { color: "#03ff30", weight: 1 });
+    drawnItems.addLayer(rectangle);
+    map.fitBounds(rectangle.getBounds());
+
+    const bboxText = `
+    Country: ${code}
+    SW Lon (West): ${sw.lon.toFixed(6)}
+    SW Lat (South): ${sw.lat.toFixed(6)}
+    NE Lon (East): ${ne.lon.toFixed(6)}
+    NE Lat (North): ${ne.lat.toFixed(6)}
+    `;
+    document.getElementById("bbox-coords").textContent = bboxText;
 }
