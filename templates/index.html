@@ -12,6 +12,10 @@
     <h1>Bounding Box Finder</h1>
     <h2><i>Open source: <a href="https://github.com/Choppovm/osm_bbox_finder">Click Here</a></i></h2>
     <div id="map"></div>
+    <select id="countrySelect">
+        <option value="">Select a country</option>
+    </select>
+    <button onclick="loadCountryBBox()">Show Country Bounding Box</button>
     <!-- [11/09/2025 - SEARCH TO PLACE PIN -->
     <!-- THIS CODE WAS TAKEN FROM A VERY VERY VERY OLD PROJECT; DO NOT EXPECT CODE STYLE TO BE THE SAME -->
     <!-- ---------------------------------------------------------------------------------------------- -->
@@ -45,3 +49,4 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
+
