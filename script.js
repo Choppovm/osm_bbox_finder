@@ -35,10 +35,10 @@ map.on(L.Draw.Event.CREATED, function (e) {
         const ne = bounds.getNorthEast();
 
         bboxText = `
-        Min Longitude (West): ${sw.lng.toFixed(6)}
-        Min Latitude (South): ${sw.lat.toFixed(6)}
-        Max Longitude (East): ${ne.lng.toFixed(6)}
-        Max Latitude (North): ${ne.lat.toFixed(6)}
+        SW Lon (West): ${sw.lng.toFixed(6)}
+        SW Lat (South): ${sw.lat.toFixed(6)}
+        NE Lon (East): ${ne.lng.toFixed(6)}
+        NE Lat (North): ${ne.lat.toFixed(6)}
         `;
     }
     else if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
@@ -60,10 +60,10 @@ map.on(L.Draw.Event.CREATED, function (e) {
 
         bboxText = `
         Polyline Bounding Box:
-        Min Longitude (West): ${minLng}
-        Min Latitude (South): ${minLat}
-        Max Longitude (East): ${maxLng}
-        Max Latitude (North): ${maxLat}
+        SW Lon (West): ${sw.lng.toFixed(6)}
+        SW Lat (South): ${sw.lat.toFixed(6)}
+        NE Lon (East): ${ne.lng.toFixed(6)}
+        NE Lat (North): ${ne.lat.toFixed(6)}
         `;
     }
     else {
@@ -136,10 +136,11 @@ function drawBoundingBox() {
 
     const bboxText = `
     Bounding Box:
-    Min Longitude (West): ${minLng.toFixed(6)}
-    Min Latitude (South): ${minLat.toFixed(6)}
-    Max Longitude (East): ${maxLng.toFixed(6)}
-    Max Latitude (North): ${maxLat.toFixed(6)}
+    SW Lon (West): ${minLng.toFixed(6)}
+    SW Lat (South): ${minLat.toFixed(6)}
+    NE Lon (East): ${maxLng.toFixed(6)}
+    NE Lat (North): ${maxLat.toFixed(6)}
     `;
     document.getElementById("bbox-coords").textContent = bboxText;
+
 }
