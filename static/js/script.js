@@ -46,7 +46,7 @@ fetch("static/json/bboxValues.json") // Will be/has been copied from countryBbox
         for (const [code, bbox] of Object.entries(data)) {
             const option = document.createElement("option");
             option.value = code;
-            option.textContent = code;
+            option.textContent = bbox.fullName || code;
             select.appendChild(option);
         }
     })
@@ -201,3 +201,4 @@ function loadCountryBBox() {
     `;
     document.getElementById("bbox-coords").textContent = bboxText;
 }
+
