@@ -6,3 +6,11 @@ Saved what would've been literal hours trying to get good enough bounding box da
 ---
 
 https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes#Current_ISO_3166_country_codes
+
+---
+
+The preFullName/ folder conists of the json data before it was merged.
+Originally, the data was just the country code with the coordinates.
+The new data contains the full country name, which helps avoid needing to translate it all later.
+
+json2dbScraper.py takes all of the information in bboxValues.json and puts it in the SQLite database.
