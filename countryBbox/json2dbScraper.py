@@ -2,8 +2,8 @@ import json
 import sqlite3 # written for SQLite databases only, main tool i use is DBBrowser.
 
 # file paths
-jsonPath = "(relative) file path goes here"
-dbPath = "(relative) file path goes here"
+jsonPath = "countryBoundingBoxes.json"
+dbPath = "boundingBoxes.db"
 
 # joad json data
 with open(jsonPath, "r", encoding="utf-8") as f:
@@ -17,6 +17,7 @@ cursor = conn.cursor()
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS countries (
     countryCode TEXT PRIMARY KEY,
+    countryFullName TEXT,
     swLat REAL,
     swLon REAL,
     neLat REAL,
@@ -24,17 +25,18 @@ CREATE TABLE IF NOT EXISTS countries (
 )
 """)
 
-# Insert ddata
+# Insert data
 for isoA3Code, coords in data.items():
+    countryFullName = coords["fullName"]
     swLat = coords["sw"]["lat"]
     swLon = coords["sw"]["lon"]
     neLat = coords["ne"]["lat"]
     neLon = coords["ne"]["lon"]
 
     cursor.execute("""
-        INSERT OR REPLACE INTO countries (countryCode, swLat, swLon, neLat, neLon)
-        VALUES (?, ?, ?, ?, ?)
-    """, (isoA3Code, swLat, swLon, neLat, neLon))
+        INSERT OR REPLACE INTO countries (countryCode, countryFullName, swLat, swLon, neLat, neLon)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (isoA3Code, countryFullName, swLat, swLon, neLat, neLon))
 
 # Commit and close
 conn.commit()
